@@ -4,12 +4,9 @@ import ToDoForm from '../components/ToDoForm';
 import ToDoList from '../components/ToDoList';
 
 const ToDo = () => {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(['menyapu', 'mengepel']);
 
   const handleClick = (todo) => {
-    // NEVER mutate state directly, like using push() or =
-    // Treat state as if it were immutable, so you replace the whole array
-    // ...todos is the spread operator, it spreads the array
     setTodos([...todos, todo]);
   };
 
