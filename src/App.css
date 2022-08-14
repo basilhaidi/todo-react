@@ -40,3 +40,7 @@
 .todo-form span > *:first-child {
   width: 80%;
 }
+
+.complete {
+  text-decoration: line-through;
+}

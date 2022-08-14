@@ -6,19 +6,23 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Checkbox from '@mui/material/Checkbox';
 
-const ToDoList = ({ todos }) => {
+const ToDoList = ({ todos, handleCheckbox }) => {
   return (
     <div className="todo-list">
       <List>
-        {todos.map((item) => {
+        {todos.map((todo, id) => {
           return (
-            <ListItem disablePadding>
+            <ListItem key={id} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                  <Checkbox />
+                  <Checkbox
+                    checked={todo.complete}
+                    onChange={() => handleCheckbox(todo.id)}
+                    disableRipple
+                  />
                 </ListItemIcon>
                 <ListItemIcon>
-                  <ListItemText>{item}</ListItemText>;
+                  <ListItemText primary={todo.task} className={todo.complete && 'complete'} />
                 </ListItemIcon>
               </ListItemButton>
             </ListItem>
